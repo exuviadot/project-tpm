@@ -65,7 +65,7 @@ Navigasi bawah (*BottomNavigationBar*) akan memiliki 3 menu utama:
 - Menggunakan **Google Gemini API** (LLM) untuk fitur **"Asisten Kuliner"**.
 
 ### 10. Fitur Mini Games Sederhana
-- **"Food Roulette / Gacha"**: Roda keberuntungan berisi kategori makanan atau restoran terdekat. Dipicu secara *Shake* accelerometer.
+- **"Food Roulette / Gacha"**: Roda keberuntungan berisi kategori makanan atau restoran terdekat. Halaman ini dimunculkan oleh *Shake* accelerometer.
 
 ### 11. Pencarian, Pemilihan, & Notifikasi
 - **Pencarian**: Fitur *Search bar*.
