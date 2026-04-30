@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'services/notification_service.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  try {
+    await dotenv.load(fileName: '.env');
+  } catch (e) {
+    print('Error loading .env file: $e');
+  }
+
   await NotificationService.init();
   runApp(const FoodieFinderApp());
 }

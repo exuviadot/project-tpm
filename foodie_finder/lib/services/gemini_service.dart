@@ -1,8 +1,9 @@
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class GeminiService {
   // TODO: Ganti dengan API Key Gemini yang valid
-  static const String apiKey = 'AIzaSyDexBN5ndPxr3-Q0Qgf8XF2W5C5OFfXWY8';
+  static String get apiKey => dotenv.env['GEMINI_API_KEY'] ?? '';
   
   static Future<String> getRecommendation(String prompt) async {
     if (apiKey == 'AIzaSyDexBN5ndPxr3-Q0Qgf8XF2W5C5OFfXWY8') {
@@ -10,7 +11,7 @@ class GeminiService {
     }
 
     try {
-      final model = GenerativeModel(model: 'gemini-1.5-flash-latest', apiKey: apiKey);
+      final model = GenerativeModel(model: 'gemini-2.5-flash-lite', apiKey: apiKey);
       final content = [Content.text('Kamu adalah Asisten Kuliner bernama FoodieBot. Jawablah secara singkat, ramah, dan berikan rekomendasi makanan atau tipe restoran berdasarkan input ini: $prompt')];
       final response = await model.generateContent(content);
       return response.text ?? 'Maaf, saya tidak bisa memproses permintaan saat ini.';
