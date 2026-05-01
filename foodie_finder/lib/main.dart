@@ -2,12 +2,26 @@ import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'services/notification_service.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_generative_ai/google_generative_ai.dart'; 
+
+late final GenerativeModel geminiModel;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
     await dotenv.load(fileName: '.env');
+    
+    final geminiApiKey = dotenv.env['GEMINI_API_KEY'];
+    if (geminiApiKey != null) {
+      geminiModel = GenerativeModel(
+        model: 'gemini-1.5-flash',
+        apiKey: geminiApiKey,
+      );
+      print('Gemini AI berhasil dikonfigurasi.');
+    } else {
+      print('Peringatan: GEMINI_API_KEY tidak ditemukan di file .env');
+    }
   } catch (e) {
     print('Error loading .env file: $e');
   }
@@ -29,7 +43,6 @@ class FoodieFinderApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       title: 'Foodie Finder',
       theme: ThemeData(
         colorScheme: ColorScheme(
@@ -101,8 +114,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _checkAuth() async {
     await Future.delayed(const Duration(seconds: 2));
     if (!mounted) return;
-    // Splash screen will just navigate to LoginScreen.
-    // LoginScreen will handle biometric check if token exists.
+    
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (_) => const LoginScreen()),
