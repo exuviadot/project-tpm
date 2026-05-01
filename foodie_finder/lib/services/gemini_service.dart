@@ -8,14 +8,14 @@ class GeminiService {
   static Future<String> getRecommendation(String prompt) async {
     // 1. Perbaikan logika pengecekan API Key
     if (_apiKey.isEmpty || _apiKey == 'YOUR_PLACEHOLDER_KEY') {
-      return 'Sistem AI: API Key Gemini belum dikonfigurasi di file .env.';
+      return 'Sistem AI: API Key Gemini belum dikonfigurasi.';
     }
 
     try {
       // 2. Koreksi Nama Model: Gunakan 'gemini-1.5-flash' (versi stabil terbaru)
       // Saat ini belum ada versi 'gemini-2.5-flash-lite'.
       final model = GenerativeModel(
-        model: 'gemini-1.5-flash', 
+        model: 'gemini-2.5-flash-lite', 
         apiKey: _apiKey,
       );
 
