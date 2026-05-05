@@ -1,0 +1,492 @@
+{
+  "type": "FeatureCollection",
+  "generator": "Gemini-Chef-Special",
+  "copyright": "Data curated for DIY Culinary Project",
+  "timestamp": "2026-05-05T07:18:00Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/122889730",
+        "name": "Gudeg Yu Djum Wijilan 167",
+        "rating": "4.8",
+        "ranking": 1,
+        "description": "Ikon kuliner Yogyakarta yang menyajikan gudeg kering legendaris dengan resep turun-temurun.",
+        "cuisine": "Gudeg",
+        "address": "Jl. Wijilan No.167, Panembahan, Kraton",
+        "opening_hours": "06:00 - 22:00",
+        "image_url": "https://source.unsplash.com/featured/?jackfruit,stew,indonesian-food",
+        "weather_suggestion": "Nikmat untuk Sarapan di Pagi yang Cerah",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Nasi Gudeg Telur Suwir", "price": 35000 },
+          { "item": "Nasi Gudeg Kendil", "price": 150000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.366751,-7.804494] },
+      "id": "way/122889730"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000001",
+        "name": "Sate Klatak Pak Pong",
+        "rating": "4.7",
+        "ranking": 2,
+        "description": "Sate kambing unik yang dibakar menggunakan jeruji besi sepeda.",
+        "cuisine": "Sate",
+        "address": "Jl. Sultan Agung No.18, Jejeran II, Wonokromo, Pleret 55791 Bantul",
+        "opening_hours": "18:30 - 01:00",
+        "image_url": "https://source.unsplash.com/featured/?satay,lamb,grill",
+        "weather_suggestion": "Sangat Cocok untuk Malam yang Dingin",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Sate Klatak (2 Tusuk)", "price": 25000 },
+          { "item": "Tongseng Kambing", "price": 25000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.387378,-7.870704] },
+      "id": "way/20000001"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000002",
+        "name": "Soto Kadipiro 3 Jogja",
+        "rating": "4.6",
+        "ranking": 3,
+        "description": "Menikmati soto sapi dan ayam dari pagi menjelang siang.",
+        "cuisine": "Soto",
+        "address": "Jalan Wates 49, Kasihan, Bantul Regency, Special Region of Yogyakarta 55182, Indonesia",
+        "opening_hours": "06:00 - 16:00",
+        "image_url": "https://source.unsplash.com/featured/?soup,bowl,beef-soup",
+        "weather_suggestion": "Terbaik Dimakan Saat Mendung atau Gerimis",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Soto Daging Sapi", "price": 10000 },
+          { "item": "Tempe Garit", "price": 1000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.346229,-7.800625] },
+      "id": "way/20000002"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000003",
+        "name": "Mie Ayam Bu Tumini",
+        "rating": "4.7",
+        "ranking": 4,
+        "description": "Mie ayam dengan kuah kental berwarna cokelat yang manis dan gurih, sangat populer.",
+        "cuisine": "Mie Ayam",
+        "address": "Jalan Imogiri Timur 311, Umbulharjo, Special Region of Yogyakarta 55163, Indonesia",
+        "opening_hours": "10:00 - 17:00",
+        "image_url": "https://source.unsplash.com/featured/?noodles,chicken,bowl",
+        "weather_suggestion": "Pas untuk Makan Siang yang Mengenyangkan",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Mie Ayam Ceker", "price": 15000 },
+          { "item": "Mie Ayam Jumbo", "price": 20000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.39064,-7.833367] },
+      "id": "way/20000003"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000004",
+        "name": "Bakso Klenger Ratu Sari",
+        "rating": "4.5",
+        "ranking": 5,
+        "description": "Pusat bakso raksasa di Jogja yang ukurannya bisa mencapai berat beberapa kilogram.",
+        "cuisine": "Bakso",
+        "address": "Jalan Nologaten 254, Depok, Sleman Regency, Special Region of Yogyakarta 55281, Indonesia",
+        "opening_hours": "10:00 - 21:00",
+        "image_url": "https://source.unsplash.com/featured/?meatballs,soup,indonesian",
+        "weather_suggestion": "Mantap Saat Cuaca Hujan Deras",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Bakso Klenger 250gr", "price": 35000 },
+          { "item": "Bakso Petir", "price": 25000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.400014,-7.778896] },
+      "id": "way/20000004"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000005",
+        "name": "Es Buah PK",
+        "rating": "4.6",
+        "ranking": 6,
+        "description": "Warung tenda legendaris yang menyajikan es buah segar dengan saus cokelat khas.",
+        "cuisine": "Dessert",
+        "address": "Jalan Pakuningratan No. 28 A, Jetis, Yogyakarta, Special Region of Yogyakarta 55233, Indonesia",
+        "opening_hours": "10:00 - 18:00",
+        "image_url": "https://source.unsplash.com/featured/?fruit-salad,ice,dessert",
+        "weather_suggestion": "Paling Segar Saat Panas Terik Siang Hari",
+        "amenity": "cafe",
+        "menu": [
+          { "item": "Es Buah Spesial", "price": 12000 },
+          { "item": "Bakso Sapi", "price": 15000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.361145,-7.780743] },
+      "id": "way/20000005"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000006",
+        "name": "Raminten's Kitchen",
+        "rating": "4.4",
+        "ranking": 7,
+        "description": "Kafe dengan nuansa Jawa yang sangat kental, unik, dan eksentrik.",
+        "cuisine": "Traditional",
+        "address": "Jalan Sabirin No. 2A, Gondokusuman, Yogyakarta, Special Region of Yogyakarta 55224, Indonesia",
+        "opening_hours": "09:00 - 23:00",
+        "image_url": "https://source.unsplash.com/featured/?traditional,cafe,java",
+        "weather_suggestion": "Cocok untuk Makan Malam Bersama Keluarga",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Sego Kucing Double", "price": 10000 },
+          { "item": "Ayam Kotabaru", "price": 25000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.372106,-7.784401] },
+      "id": "way/20000006"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000007",
+        "name": "Kopi Klotok",
+        "rating": "4.7",
+        "ranking": 8,
+        "description": "Warung kopi dengan konsep pedesaan, menyajikan pisang goreng yang sangat fenomenal.",
+        "cuisine": "Coffee Shop",
+        "address": "Jl. Kaliurang No. 16, Pakem, Sleman Regency, Special Region of Yogyakarta 55582, Indonesia",
+        "opening_hours": "07:00 - 21:00",
+        "image_url": "https://source.unsplash.com/featured/?coffee,fried-banana,village",
+        "weather_suggestion": "Nikmat Saat Pagi Hari Berkabut",
+        "amenity": "cafe",
+        "menu": [
+          { "item": "Kopi Klotok", "price": 5000 },
+          { "item": "Pisang Goreng (Porsi)", "price": 6500 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.421304,-7.670339] },
+      "id": "way/20000007"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000008",
+        "name": "RamenYa! Ambarrukmo Plaza",
+        "rating": "4.5",
+        "ranking": 9,
+        "description": "Kedai ramen populer dengan pilihan kuah yang gurih dan harga terjangkau.",
+        "cuisine": "Japanese",
+        "address": "Plaza Ambarrukmo, Lt. 3",
+        "opening_hours": "10:00 - 21:00",
+        "image_url": "https://source.unsplash.com/featured/?ramen,noodle,japanese-food",
+        "weather_suggestion": "Pilihan Tepat Saat Ingin Makan Hangat di Mall",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Legendary Chicken Ramen", "price": 39000 },
+          { "item": "Spicy Legendary Ramen", "price": 45000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.4011, -7.7827] },
+      "id": "way/20000008"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000009",
+        "name": "Boost Juice Bars",
+        "rating": "4.3",
+        "ranking": 10,
+        "description": "Kedai jus dengan porsi besar dan suasana retro yang asyik untuk nongkrong.",
+        "cuisine": "Juice",
+        "address": "Ring Road Utara 55283, Depok, Sleman Regency, Special Region of Yogyakarta 55283, Indonesia",
+        "opening_hours": "08:00 - 22:00",
+        "image_url": "https://source.unsplash.com/featured/?juice,fruit,drink",
+        "weather_suggestion": "Terbaik Diminum Saat Sore Hari yang Gerah",
+        "amenity": "cafe",
+        "menu": [
+          { "item": "Jus Alpukat Kocok", "price": 15000 },
+          { "item": "Jus Mangga Besar", "price": 18000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.399039,-7.760674] },
+      "id": "way/20000009"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000010",
+        "name": "Ayam Goreng Suharti",
+        "rating": "4.6",
+        "ranking": 11,
+        "description": "Ayam goreng kalasan dengan bumbu meresap hingga ke tulang dan sambal yang mantap.",
+        "cuisine": "Ayam Goreng",
+        "address": "Jalan Laksda Adisucipto No. 208, Depok, Sleman Regency, Special Region of Yogyakarta 55197, Indonesia",
+        "opening_hours": "08:30 - 21:00",
+        "image_url": "https://source.unsplash.com/featured/?fried-chicken,indonesian",
+        "weather_suggestion": "Cocok Kapan Saja untuk Makan Siang Keluarga",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Ayam Goreng Utuh", "price": 95000 },
+          { "item": "Nasi Ayam Potong", "price": 28000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.413307,-7.783087] },
+      "id": "way/20000010"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000011",
+        "name": "Couve Seturan",
+        "rating": "4.2",
+        "ranking": 12,
+        "description": "Kafe ruang tertutup dengan pemandangan jalanan seturan.",
+        "cuisine": "Western/Indo",
+        "address": "Jalan Seturan Raya No. 1, Depok, Sleman Regency, Special Region of Yogyakarta 55281, Indonesia",
+        "opening_hours": "11:00 - 23:00",
+        "image_url": "https://source.unsplash.com/featured/?cafe,garden,outdoor",
+        "weather_suggestion": "Sangat Nyaman Saat Sore Hari yang Cerah",
+        "amenity": "cafe",
+        "menu": [
+          { "item": "Pasta Carbonara", "price": 35000 },
+          { "item": "Ice Lychee Tea", "price": 15000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.409492,-7.77185] },
+      "id": "way/20000011"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000012",
+        "name": "Pizza Hut Sudirman",
+        "rating": "4.5",
+        "ranking": 13,
+        "description": "Restoran pizza internasional dengan layanan cepat dan rasa yang konsisten.",
+        "cuisine": "Pizza",
+        "address": "Jalan Jenderal Sudirman 65, Gondokusuman, Yogyakarta, Special Region of Yogyakarta 55223, Indonesia",
+        "opening_hours": "09:00 - 22:00",
+        "image_url": "https://source.unsplash.com/featured/?pizza,cheese",
+        "weather_suggestion": "Pas untuk Kumpul Teman di Akhir Pekan",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Meat Lovers Pizza", "price": 90000 },
+          { "item": "Garlic Bread", "price": 25000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.373595,-7.782697] },
+      "id": "way/20000012"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000013",
+        "name": "Oseng Mercon Mas Toni",
+        "rating": "4.4",
+        "ranking": 14,
+        "description": "Kuliner super pedas khas Jogja yang terbuat dari tetelan sapi dan cabai melimpah.",
+        "cuisine": "Spicy",
+        "address": "Jalan Kyai Haji Ahmad Dahlan No. 103, Ngampilan, Yogyakarta, Special Region of Yogyakarta 55261, Indonesia",
+        "opening_hours": "16:00 - 23:00",
+        "image_url": "https://source.unsplash.com/featured/?chili,beef,spicy-food",
+        "weather_suggestion": "Menambah Semangat di Malam Hari yang Dingin",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Oseng Mercon", "price": 30000 },
+          { "item": "Nasi Putih", "price": 5000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.357337,-7.801077] },
+      "id": "way/20000013"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000014",
+        "name": "Angkringan Lik Man",
+        "rating": "4.5",
+        "ranking": 15,
+        "description": "Tempat asal muasal Kopi Joss (kopi dengan arang membara) yang ikonik.",
+        "cuisine": "Street Food",
+        "address": "Jalan Wongsodirjan 4, Gedong Tengen, Yogyakarta, Special Region of Yogyakarta 55271, Indonesia",
+        "opening_hours": "17:00 - 02:00",
+        "image_url": "https://source.unsplash.com/featured/?charcoal-coffee,angkringan",
+        "weather_suggestion": "Terbaik untuk Nongkrong Larut Malam",
+        "amenity": "cafe",
+        "menu": [
+          { "item": "Kopi Joss", "price": 5000 },
+          { "item": "Sego Kucing", "price": 3000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.366042,-7.788753] },
+      "id": "way/20000014"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000015",
+        "name": "Bebek Goreng H. Slamet Gejayan",
+        "rating": "4.5",
+        "ranking": 16,
+        "description": "Bebek goreng empuk dengan sambal korek yang super pedas dan gurih.",
+        "cuisine": "Bebek Goreng",
+        "address": "Jalan Magelang 100, Tegalrejo, Yogyakarta, Special Region of Yogyakarta 55242, Indonesia",
+        "opening_hours": "10:00 - 21:00",
+        "image_url": "https://source.unsplash.com/featured/?fried-duck,sambal",
+        "weather_suggestion": "Sempurna untuk Makan Siang yang Berkeringat",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Bebek Goreng Paha", "price": 32000 },
+          { "item": "Sambal Korek Extra", "price": 5000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.361381,-7.776405] },
+      "id": "way/20000015"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000016",
+        "name": "Sate Ratu",
+        "rating": "4.8",
+        "ranking": 17,
+        "description": "Sate ayam merah yang bumbunya meresap dan sudah memenangkan banyak penghargaan kuliner.",
+        "cuisine": "Sate Ayam",
+        "address": "Jalan Sidomukti No. 3, Depok, Sleman Regency, Special Region of Yogyakarta 55283, Indonesia",
+        "opening_hours": "11:00 - 21:00",
+        "image_url": "https://source.unsplash.com/featured/?chicken-satay,grill",
+        "weather_suggestion": "Pas untuk Sore Hari Setelah Berkeliling Kota",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Sate Merah", "price": 30000 },
+          { "item": "Lilit Basah", "price": 25000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.399267,-7.73592] },
+      "id": "way/20000016"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000017",
+        "name": "ViaVia Jogja",
+        "rating": "4.5",
+        "ranking": 18,
+        "description": "Restoran yang ramah turis mancanegara dengan menu organik dan sehat.",
+        "cuisine": "International",
+        "address": "Jalan Prawirotaman 32, Mergangsan, Yogyakarta, Special Region of Yogyakarta 55153, Indonesia",
+        "opening_hours": "09:00 - 22:00",
+        "image_url": "https://source.unsplash.com/featured/?healthy-food,salad",
+        "weather_suggestion": "Segar untuk Brunch di Pagi Hari yang Santai",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Organic Salad Box", "price": 40000 },
+          { "item": "Homemade Bread", "price": 15000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.371528,-7.81935] },
+      "id": "way/20000017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000018",
+        "name": "Yammie Pathuk",
+        "rating": "4.6",
+        "ranking": 19,
+        "description": "Mie dengan tekstur halus khas oriental yang sudah melegenda di kawasan Pathuk.",
+        "cuisine": "Noodle",
+        "address": "Jalan Kemetiran Kidul 61, Gedong Tengen, Yogyakarta, Special Region of Yogyakarta 55272, Indonesia",
+        "opening_hours": "09:00 - 21:00",
+        "image_url": "https://source.unsplash.com/featured/?noodle,soup,oriental",
+        "weather_suggestion": "Hangat dan Pas untuk Cuaca Berawan",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Yammie Pangsit", "price": 18000 },
+          { "item": "Bakso Goreng", "price": 5000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.358177,-7.793269] },
+      "id": "way/20000018"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000019",
+        "name": "House of Raminten",
+        "rating": "4.4",
+        "ranking": 20,
+        "description": "Pengalaman makan unik dengan suasana mistis nan eksotis khas Yogyakarta.",
+        "cuisine": "Javanese",
+        "address": "Jalan Sunaryo 7, Gondokusuman, Yogyakarta, Special Region of Yogyakarta 55224, Indonesia",
+        "opening_hours": "24 Jam",
+        "image_url": "https://source.unsplash.com/featured/?culture,food,indonesia",
+        "weather_suggestion": "Cocok Kapan Saja Karena Buka 24 Jam",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Sego Liwet", "price": 25000 },
+          { "item": "Wedang Sereh", "price": 10000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.371393,-7.785183] },
+      "id": "way/20000019"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000020",
+        "name": "Preksu Deresan",
+        "rating": "4.4",
+        "ranking": 20,
+        "description": "Pengalaman makan ayam geprek dengan berbagai macam sambal.",
+        "cuisine": "Ayam Goreng",
+        "address": "Jalan Gambir 16, Depok, Sleman Regency, Special Region of Yogyakarta 55281, Indonesia",
+        "opening_hours": "24 Jam",
+        "image_url": "https://source.unsplash.com/featured/?culture,food,indonesia",
+        "weather_suggestion": "Mantap Saat Cuaca Hujan Deras",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Nasi Putih Ayam Geprek", "price": 17000 },
+          { "item": "Nasi Uduk Ayam Geprek", "price": 15000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.388777,-7.76521] },
+      "id": "way/20000020"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location_id": "way/20000021",
+        "name": "Mixue Jogja Seturan",
+        "rating": "4.4",
+        "ranking": 20,
+        "description": "Pengalaman makan es krim dengan suasana syahdu.",
+        "cuisine": "Ice",
+        "address": "Jalan Seturan Raya 12, Depok, Sleman Regency, Special Region of Yogyakarta 55281, Indonesia",
+        "opening_hours": "24 Jam",
+        "image_url": "https://source.unsplash.com/featured/?culture,food,indonesia",
+        "weather_suggestion": "Cocok Kapan Saja",
+        "amenity": "restaurant",
+        "menu": [
+          { "item": "Mixue Ice Cream", "price": 8000 },
+          { "item": "Strawberry Lucky Sundae", "price": 16000 }
+        ]
+      },
+      "geometry": { "type": "Point", "coordinates": [110.409942,-7.768271] },
+      "id": "way/20000021"
+    }
+  ]
+}
