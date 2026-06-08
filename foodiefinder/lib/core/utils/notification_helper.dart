@@ -8,47 +8,65 @@ class NotificationHelper {
 
   static Future<void> initialize() async {
     tz.initializeTimeZones();
-    
-    const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
+    tz.setLocalLocation(tz.getLocation('Asia/Jakarta'));
+
+    const androidSettings =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
     const iosSettings = DarwinInitializationSettings();
-    
+
     await _notificationsPlugin.initialize(
       const InitializationSettings(android: androidSettings, iOS: iosSettings),
     );
 
-    await _notificationsPlugin
-        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
-        ?.requestNotificationsPermission();
+    final androidPlugin =
+        _notificationsPlugin.resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>();
+
+    await androidPlugin?.requestNotificationsPermission();
+
+    final canScheduleExact =
+        await androidPlugin?.canScheduleExactNotifications();
+    if (canScheduleExact == false) {
+      await androidPlugin?.requestExactAlarmsPermission();
+    }
   }
 
   static Future<void> scheduleMealReminders() async {
+    const channelId = 'meal_reminder_channel';
+    const channelName = 'Meal Reminder';
+
     final times = [
-      const TimeOfDay(hour: 7,  minute: 0),   // Sarapan
-      const TimeOfDay(hour: 12, minute: 0),   // Makan Siang
-      const TimeOfDay(hour: 20, minute: 15),   // Makan Malam
+      const TimeOfDay(hour: 7, minute: 0),
+      const TimeOfDay(hour: 12, minute: 0),
+      const TimeOfDay(hour: 19, minute: 20),
     ];
-    final messages = ['Sarapan yuk! 🌅', 'Waktunya makan siang! 🍱', 'Makan malam dulu! 🌙'];
+    final messages = [
+      'Sarapan yuk!',
+      'Waktunya makan siang!',
+      'Makan malam dulu!'
+    ];
 
     for (int i = 0; i < times.length; i++) {
       await _notificationsPlugin.zonedSchedule(
         i,
-        '🍽️ FoodieFinder Reminder',
+        'FoodieFinder Reminder',
         messages[i],
         _nextInstance(times[i]),
         const NotificationDetails(
           android: AndroidNotificationDetails(
-            'meal_reminder', 
-            'Meal Reminder',
+            channelId,
+            channelName,
             channelDescription: 'Reminder for breakfast, lunch, and dinner',
-            importance: Importance.max, 
+            importance: Importance.max,
             priority: Priority.high,
+            enableLights: true,
             ticker: 'ticker',
           ),
-          iOS: DarwinNotificationDetails(), // jujur ini ios tp ga kepake yangg
+          iOS: DarwinNotificationDetails(), // ios ga perlu keknya teh yangg
         ),
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
+            UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.time,
       );
     }
@@ -57,14 +75,8 @@ class NotificationHelper {
   static tz.TZDateTime _nextInstance(TimeOfDay time) {
     final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
     tz.TZDateTime scheduledDate = tz.TZDateTime(
-      tz.local, 
-      now.year, 
-      now.month, 
-      now.day, 
-      time.hour, 
-      time.minute
-    );
-    
+        tz.local, now.year, now.month, now.day, time.hour, time.minute);
+
     if (scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }

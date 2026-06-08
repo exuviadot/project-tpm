@@ -10,11 +10,8 @@ class ApiService {
       if (kIsWeb) {
         return 'http://localhost:3000';
       } else {
-<<<<<<< HEAD
-        return Platform.isAndroid ? 'http://10.0.2.2:3000' : 'http://localhost:3000';
-=======
-        return Platform.isAndroid ? 'http://10.255.57.202:3000' : 'http://localhost:3000';
->>>>>>> 9310995969788ade11940823c7c125be6d3d0f44
+        // return Platform.isAndroid ? 'http://10.0.2.2:3000' : 'http://localhost:3000';
+        return Platform.isAndroid ? 'http://192.168.100.204:3000' : 'http://localhost:3000';
       }
     }
 

@@ -94,87 +94,111 @@ class _MinigameScreenState extends ConsumerState<MinigameScreen>
             return const Center(child: Text("Tidak ada data restoran"));
           }
 
-          return SizedBox.expand(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text("Goyangkan HP atau tekan Putar!",
-                    style: AppTextStyles.heading2),
-                const SizedBox(height: 32),
-                AnimatedBuilder(
-                  animation: _rotationController,
-                  builder: (context, child) {
-                    return CustomPaint(
-                      painter: RoulettePainter(
-                          segments: _rouletteItems,
-                          rotation: _rotationController.isAnimating
-                              ? _rotationAnimation.value
-                              : _currentAngle),
-                      size: const Size(300, 300),
-                    );
-                  },
-                ),
-                const SizedBox(height: 32),
-                ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 32, vertical: 16),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25)),
-                  ),
-                  icon: const Icon(Icons.ads_click, color: Colors.white),
-                  label: const Text('Putar!',
-                      style: TextStyle(color: Colors.white, fontSize: 18)),
-                  onPressed: _spin,
-                ),
-                const SizedBox(height: 32),
-                if (_winner != null)
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    margin: const EdgeInsets.symmetric(horizontal: 24),
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 10,
-                            spreadRadius: 2)
-                      ],
-                    ),
-                    child: Column(
-                      children: [
-                        Text("Pemenang!",
-                            style: AppTextStyles.heading2
-                                .copyWith(color: AppColors.primary)),
-                        const SizedBox(height: 8),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.network(_winner!.imageUrl,
-                              height: 100,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) => Container(
-                                  height: 100, color: Colors.grey[300])),
+          return LayoutBuilder(
+            builder: (context, constraints) {
+              final wheelSize =
+                  min(max(constraints.maxWidth - 48, 0), 300).toDouble();
+              final minContentHeight =
+                  max(constraints.maxHeight - 32, 0).toDouble();
+
+              return SingleChildScrollView(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: minContentHeight),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text("Tekan Putar untuk Rekomendasi!",
+                          style: AppTextStyles.heading2,
+                          textAlign: TextAlign.center),
+                      const SizedBox(height: 32),
+                      Center(
+                        child: SizedBox(
+                          width: wheelSize + 16,
+                          height: wheelSize,
+                          child: AnimatedBuilder(
+                            animation: _rotationController,
+                            builder: (context, child) {
+                              return CustomPaint(
+                                painter: RoulettePainter(
+                                    segments: _rouletteItems,
+                                    rotation: _rotationController.isAnimating
+                                        ? _rotationAnimation.value
+                                        : _currentAngle),
+                                size: Size(wheelSize + 16, wheelSize),
+                              );
+                            },
+                          ),
                         ),
-                        const SizedBox(height: 8),
-                        Text(_winner!.name,
-                            style: AppTextStyles.heading2,
-                            textAlign: TextAlign.center),
-                        const SizedBox(height: 12),
-                        ElevatedButton(
-                          onPressed: () => Navigator.pushNamed(
-                              context, '/detail',
-                              arguments: _winner),
-                          child: const Text("Lihat Detail →"),
-                        )
-                      ],
-                    ),
-                  )
-              ],
-            ),
+                      ),
+                      const SizedBox(height: 32),
+                      ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 32, vertical: 16),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25)),
+                        ),
+                        icon: const Icon(Icons.ads_click, color: Colors.white),
+                        label: const Text('Putar!',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 18)),
+                        onPressed: _spin,
+                      ),
+                      const SizedBox(height: 32),
+                      if (_winner != null)
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          margin: const EdgeInsets.symmetric(horizontal: 24),
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 10,
+                                  spreadRadius: 2)
+                            ],
+                          ),
+                          child: Column(
+                            children: [
+                              Text("Pemenang!",
+                                  style: AppTextStyles.heading2
+                                      .copyWith(color: AppColors.primary)),
+                              const SizedBox(height: 8),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: Image.network(_winner!.imageUrl,
+                                    height: 100,
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (_, __, ___) => Container(
+                                        height: 100, color: Colors.grey[300])),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(_winner!.name,
+                                  style: AppTextStyles.heading2,
+                                  textAlign: TextAlign.center),
+                              const SizedBox(height: 12),
+                              ElevatedButton(
+                                onPressed: () => Navigator.pushNamed(
+                                    context, '/detail',
+                                    arguments: _winner),
+                                child: const Text("Lihat Detail →"),
+                              )
+                            ],
+                          ),
+                        ),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
+                ),
+              );
+            },
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -203,8 +227,8 @@ class RoulettePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width / 2;
+    final radius = size.height / 2;
+    final center = Offset(radius, radius);
     final sweepAngle = 2 * pi / segments.length;
 
     for (int i = 0; i < segments.length; i++) {
