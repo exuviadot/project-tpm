@@ -21,6 +21,11 @@ class AuthNotifier extends _$AuthNotifier {
     state = result.user;
   }
 
+  Future<void> loadProfile() async {
+    final user = await ref.read(authRepositoryProvider).getProfile();
+    state = user;
+  }
+
   Future<void> register(String name, String email, String password) async {
     await ref.read(authRepositoryProvider).register(name, email, password);
   }

@@ -17,7 +17,7 @@ class ChatbotPanel extends ConsumerStatefulWidget {
 class _ChatbotPanelState extends ConsumerState<ChatbotPanel> {
   final TextEditingController _controller = TextEditingController();
   bool _isLoading = false;
-  late GeminiService _geminiService;
+  GeminiService? _geminiService;
 
   @override
   void initState() {
@@ -31,21 +31,31 @@ class _ChatbotPanelState extends ConsumerState<ChatbotPanel> {
 
   void _sendMessage(String text) async {
     if (text.trim().isEmpty) return;
-    
+
     final message = text.trim();
     _controller.clear();
-    
-    ref.read(chatHistoryNotifierProvider.notifier).addMessage(ChatMessage(text: message, isUser: true));
-    
+
+    final history = ref.read(chatHistoryNotifierProvider);
+    ref
+        .read(chatHistoryNotifierProvider.notifier)
+        .addMessage(ChatMessage(text: message, isUser: true));
+
     setState(() {
       _isLoading = true;
     });
 
-    final history = ref.read(chatHistoryNotifierProvider);
-    final response = await _geminiService.chat(message, history);
-    
+    final geminiService = _geminiService ??
+        GeminiService(await ref.read(allRestaurantsProvider.future));
+    _geminiService = geminiService;
+
+    final result = await geminiService.chat(message, history);
+
     if (mounted) {
-      ref.read(chatHistoryNotifierProvider.notifier).addMessage(ChatMessage(text: response, isUser: false));
+      ref.read(chatHistoryNotifierProvider.notifier).addMessage(ChatMessage(
+            text: result.message,
+            isUser: false,
+            recommendedRestaurants: result.recommendedRestaurants,
+          ));
       setState(() {
         _isLoading = false;
       });
@@ -69,7 +79,12 @@ class _ChatbotPanelState extends ConsumerState<ChatbotPanel> {
         child: Column(
           children: [
             const SizedBox(height: 12),
-            Container(width: 40, height: 4, decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(2))),
+            Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(2))),
             const SizedBox(height: 12),
             Row(
               children: [
@@ -89,10 +104,11 @@ class _ChatbotPanelState extends ConsumerState<ChatbotPanel> {
                 itemBuilder: (_, i) => ChatBubble(message: messages[i]),
               ),
             ),
-            if (_isLoading) const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: CircularProgressIndicator(),
-            ),
+            if (_isLoading)
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: CircularProgressIndicator(),
+              ),
             if (messages.isEmpty) _WelcomePrompts(onTap: _sendMessage),
             _buildInputRow(),
           ],
@@ -111,7 +127,8 @@ class _ChatbotPanelState extends ConsumerState<ChatbotPanel> {
               controller: _controller,
               decoration: InputDecoration(
                 hintText: "Ketik pesan...",
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
               ),
               onSubmitted: _sendMessage,
@@ -146,20 +163,21 @@ class _WelcomePrompts extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Text("Tanya apa saja tentang kuliner Jogja 🍜", style: AppTextStyles.body),
+        const Text("Tanya apa saja tentang kuliner Jogja 🍜",
+            style: AppTextStyles.body),
         const SizedBox(height: 12),
         ...prompts.map((p) => InkWell(
-          onTap: () => onTap(p),
-          child: Container(
-            margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.primary),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Text(p, style: AppTextStyles.body),
-          ),
-        )),
+              onTap: () => onTap(p),
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.primary),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(p, style: AppTextStyles.body),
+              ),
+            )),
         const SizedBox(height: 16),
       ],
     );

@@ -13,7 +13,8 @@ class MinigameScreen extends ConsumerStatefulWidget {
   ConsumerState<MinigameScreen> createState() => _MinigameScreenState();
 }
 
-class _MinigameScreenState extends ConsumerState<MinigameScreen> with SingleTickerProviderStateMixin {
+class _MinigameScreenState extends ConsumerState<MinigameScreen>
+    with SingleTickerProviderStateMixin {
   List<Restaurant> _rouletteItems = [];
   late AnimationController _rotationController;
   late Animation<double> _rotationAnimation;
@@ -38,12 +39,13 @@ class _MinigameScreenState extends ConsumerState<MinigameScreen> with SingleTick
     setState(() => _winner = null);
 
     final winnerIndex = Random().nextInt(_rouletteItems.length);
-    final totalRotation = (2 * pi * (5 + Random().nextInt(5))) + (2 * pi / _rouletteItems.length) * winnerIndex;
+    final targetAngle = _getTargetAngleForWinner(winnerIndex);
 
     _rotationAnimation = Tween<double>(
       begin: _currentAngle,
-      end: _currentAngle + totalRotation,
-    ).animate(CurvedAnimation(parent: _rotationController, curve: Curves.easeOutCubic));
+      end: targetAngle,
+    ).animate(CurvedAnimation(
+        parent: _rotationController, curve: Curves.easeOutCubic));
 
     _rotationController
       ..duration = const Duration(seconds: 4)
@@ -53,6 +55,21 @@ class _MinigameScreenState extends ConsumerState<MinigameScreen> with SingleTick
           _winner = _rouletteItems[winnerIndex];
         });
       });
+  }
+
+  double _getTargetAngleForWinner(int winnerIndex) {
+    final sweepAngle = 2 * pi / _rouletteItems.length;
+    final winnerCenterAngle = sweepAngle * winnerIndex + sweepAngle / 2;
+    final extraTurns = 5 + Random().nextInt(5);
+    var targetAngle =
+        ((_currentAngle / (2 * pi)).floor() + extraTurns) * 2 * pi -
+            winnerCenterAngle;
+
+    while (targetAngle <= _currentAngle) {
+      targetAngle += 2 * pi;
+    }
+
+    return targetAngle;
   }
 
   @override
@@ -81,13 +98,18 @@ class _MinigameScreenState extends ConsumerState<MinigameScreen> with SingleTick
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Goyangkan HP atau tekan Putar!", style: AppTextStyles.heading2),
+                const Text("Goyangkan HP atau tekan Putar!",
+                    style: AppTextStyles.heading2),
                 const SizedBox(height: 32),
                 AnimatedBuilder(
                   animation: _rotationController,
                   builder: (context, child) {
                     return CustomPaint(
-                      painter: RoulettePainter(segments: _rouletteItems, rotation: _rotationController.isAnimating ? _rotationAnimation.value : _currentAngle),
+                      painter: RoulettePainter(
+                          segments: _rouletteItems,
+                          rotation: _rotationController.isAnimating
+                              ? _rotationAnimation.value
+                              : _currentAngle),
                       size: const Size(300, 300),
                     );
                   },
@@ -96,11 +118,14 @@ class _MinigameScreenState extends ConsumerState<MinigameScreen> with SingleTick
                 ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primary,
-                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 32, vertical: 16),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25)),
                   ),
                   icon: const Icon(Icons.ads_click, color: Colors.white),
-                  label: const Text('Putar!', style: TextStyle(color: Colors.white, fontSize: 18)),
+                  label: const Text('Putar!',
+                      style: TextStyle(color: Colors.white, fontSize: 18)),
                   onPressed: _spin,
                 ),
                 const SizedBox(height: 32),
@@ -112,21 +137,37 @@ class _MinigameScreenState extends ConsumerState<MinigameScreen> with SingleTick
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(16),
-                      boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 10, spreadRadius: 2)],
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 10,
+                            spreadRadius: 2)
+                      ],
                     ),
                     child: Column(
                       children: [
-                        Text("Pemenang!", style: AppTextStyles.heading2.copyWith(color: AppColors.primary)),
+                        Text("Pemenang!",
+                            style: AppTextStyles.heading2
+                                .copyWith(color: AppColors.primary)),
                         const SizedBox(height: 8),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
-                          child: Image.network(_winner!.imageUrl, height: 100, width: double.infinity, fit: BoxFit.cover, errorBuilder: (_, __, ___) => Container(height: 100, color: Colors.grey[300])),
+                          child: Image.network(_winner!.imageUrl,
+                              height: 100,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) => Container(
+                                  height: 100, color: Colors.grey[300])),
                         ),
                         const SizedBox(height: 8),
-                        Text(_winner!.name, style: AppTextStyles.heading2, textAlign: TextAlign.center),
+                        Text(_winner!.name,
+                            style: AppTextStyles.heading2,
+                            textAlign: TextAlign.center),
                         const SizedBox(height: 12),
                         ElevatedButton(
-                          onPressed: () => Navigator.pushNamed(context, '/detail', arguments: _winner),
+                          onPressed: () => Navigator.pushNamed(
+                              context, '/detail',
+                              arguments: _winner),
                           child: const Text("Lihat Detail →"),
                         )
                       ],
@@ -150,9 +191,14 @@ class RoulettePainter extends CustomPainter {
   RoulettePainter({required this.segments, required this.rotation});
 
   static const colors = [
-    Color(0xFFFFB84D), Color(0xFFFF6B6B), Color(0xFF4CAF50),
-    Color(0xFF2196F3), Color(0xFFFF9800), Color(0xFF9C27B0),
-    Color(0xFF00BCD4), Color(0xFFF44336),
+    Color(0xFFFFB84D),
+    Color(0xFFFF6B6B),
+    Color(0xFF4CAF50),
+    Color(0xFF2196F3),
+    Color(0xFFFF9800),
+    Color(0xFF9C27B0),
+    Color(0xFF00BCD4),
+    Color(0xFFF44336),
   ];
 
   @override
@@ -170,22 +216,25 @@ class RoulettePainter extends CustomPainter {
         true,
         paint,
       );
-      _drawText(canvas, segments[i].name, center, radius, rotation + sweepAngle * i + sweepAngle / 2);
+      _drawText(canvas, segments[i].name, center, radius,
+          rotation + sweepAngle * i + sweepAngle / 2);
     }
 
     _drawPointer(canvas, center, radius);
   }
 
-  void _drawText(Canvas canvas, String text, Offset center, double radius, double angle) {
+  void _drawText(
+      Canvas canvas, String text, Offset center, double radius, double angle) {
     final textPainter = TextPainter(
       text: TextSpan(
         text: text.length > 10 ? '${text.substring(0, 10)}...' : text,
-        style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+        style: const TextStyle(
+            color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
       ),
       textDirection: TextDirection.ltr,
     );
     textPainter.layout();
-    
+
     canvas.save();
     canvas.translate(center.dx, center.dy);
     canvas.rotate(angle);
@@ -197,10 +246,11 @@ class RoulettePainter extends CustomPainter {
   void _drawPointer(Canvas canvas, Offset center, double radius) {
     final paint = Paint()..color = Colors.black87;
     final path = Path()
-      ..moveTo(center.dx + radius - 10, center.dy - 10)
-      ..lineTo(center.dx + radius + 10, center.dy)
-      ..lineTo(center.dx + radius - 10, center.dy + 10)
+      ..moveTo(center.dx + radius - 22, center.dy)
+      ..lineTo(center.dx + radius + 8, center.dy - 14)
+      ..lineTo(center.dx + radius + 8, center.dy + 14)
       ..close();
+
     canvas.drawPath(path, paint);
   }
 
