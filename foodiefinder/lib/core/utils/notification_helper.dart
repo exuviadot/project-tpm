@@ -37,7 +37,7 @@ class NotificationHelper {
 
     final times = [
       const TimeOfDay(hour: 7, minute: 0),
-      const TimeOfDay(hour: 12, minute: 0),
+      const TimeOfDay(hour: 10, minute: 53),
       const TimeOfDay(hour: 19, minute: 20),
     ];
     final messages = [
