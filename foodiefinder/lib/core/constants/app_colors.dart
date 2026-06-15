@@ -5,7 +5,7 @@ class AppColors {
   static const Color primary      = Color(0xFFFFB84D);  // Yellow/Orange
   static const Color primaryDark  = Color(0xFFE09835);  // Darker Orange (hover/pressed)
   static const Color secondary    = Color(0xFFFFFFFF);  // White
-  static const Color background   = Color(0xFFF5F5F5);  // Light Gray
+  static const Color background   = Color(0xFFF5F5F5);  // Light Gray background
   static const Color surface      = Color(0xFFFFFFFF);  // Card background
   static const Color accent       = Color(0xFFFF6B6B);  // Red (badge, alert)
 
